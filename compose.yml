@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules   # node_modules をホストと分離
+    command: yarn dev --host
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
